@@ -45,8 +45,8 @@ WHERE c.CustomerID = 4;
 
 -- report all revenue made by iphones
 
-SELECT p.Price, p.ID, p.Name, o.ID FROM app.Products AS p
-LEFT JOIN app.Orders as o ON p.ID = o.ProductID
+SELECT p.Price, p.ID, p.Name FROM app.Products AS p
+LEFT JOIN app.Orders as o ON p.ID = o.ProductID 
 WHERE o.ProductID = 4;
 
 --Change iphone price to 250
@@ -54,4 +54,6 @@ WHERE o.ProductID = 4;
 UPDATE app.Products
 SET Price = 250
 WHERE ID = 4;
+
+
 
