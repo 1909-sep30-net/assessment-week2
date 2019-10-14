@@ -1,0 +1,22 @@
+CREATE SCHEMA app;
+GO
+
+CREATE TABLE app.Customer
+(
+    CustomerID INT IDENTITY(1,1) PRIMARY KEY,
+    Firstname NVARCHAR(25) NOT NULL,
+    Lastname NVARCHAR(25) NOT NULL,
+    CardNumber NVARCHAR(16) NOT NULL
+);
+CREATE TABLE app.Products
+(
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(25) NOT NULL,
+    Price MONEY NOT NULL
+);
+CREATE TABLE app.Orders
+(
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    CustomerID INT FOREIGN KEY REFERENCES app.Customer(CustomerID) NOT NULL,
+    ProductID INT FOREIGN KEY REFERENCES app.Products(ID) NOT NULL
+);
