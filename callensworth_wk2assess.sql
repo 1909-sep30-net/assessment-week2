@@ -1,0 +1,28 @@
+CREATE SCHEMA a2wk2
+GO
+
+CREATE TABLE a2wk2.Customers
+(
+	CustomerID INT				NOT NULL		IDENTITY		PRIMARY KEY,
+	FirstName NVARCHAR( 50 ),
+	LastName NVARCHAR(50),
+	CardNumber INT
+
+)
+
+CREATE TABLE a2wk2.Products
+(
+	ProductID INT NOT  NULL IDENTITY PRIMARY KEY,
+	ProductName NVARCHAR( 50 ),
+	Price MONEY
+)
+
+CREATE TABLE a2wk2.Orders
+(
+	OrderID INT NOT NULL IDENTITY PRIMARY KEY,
+	ProductID INT FOREIGN KEY  REFERENCES a2wk2.Products (ProductID),
+	CustomerID INT FOREIGN KEY  REFERENCES a2wk2.Customers (CustomerID)
+
+)
+
+
