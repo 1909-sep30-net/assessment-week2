@@ -20,7 +20,7 @@ Select * From Orders as o
 Select Sum(Price) From Products as p 
 	Inner Join Orders as o ON p.ProductID = o.ProductID
 Where p.Name = 'IPhone'
-GroupBy Sum(Price)
+Group By Sum(Price)
 
 Update Products Set Price = $250
 	Where Name = 'IPhone'
