@@ -1,0 +1,51 @@
+DROP Products;
+DROP Orders;
+Drop Customers;
+
+GO
+
+CREATE TABLE Products (
+	ID INT NOT NULL PRIMARY KEY IDENTITY,
+	Name NOT NULL NVARCHAR(50),
+	Price NOT NULL MONEY
+);
+
+CREATE TABLE Customers (
+	ID INT NOT NULL PRIMARY KEY IDENTITY,
+	Firstname NVARCHAR(50) NOT NULL,
+	Lastname NVARCHAR(50),
+	CardNumber NVARCHAR(16) NOT NULL
+);
+
+CREATE TABLE Orders (
+	ID INT NOT NULL PRIMARY KEY IDENTITY,
+	ProductID INT NOT NULL REFERENCES Products(ID),
+	CustomerID INT NOT NULL REFERENCES Customers(ID)
+);
+
+GO
+
+INSERT INTO Products
+VALUES (Beans, .35);
+
+INSERT INTO Products
+VALUES (Peas, .20);
+
+INSERT INTO Products
+VALUES (iPhone, 200.00);
+
+INSERT INTO Customers
+VALUES (Tina, Smith, 4738847393849209);
+
+INSERT INTO Customers
+VALUES (Henry, Crensh, 9203928493849201);
+
+INSERT INTO Customers
+VALUES (Markus, Stand, 4673483754734837);
+
+INSERT INTO Orders (ProductID)
+SELECT ID FROM Products; 
+
+INSERT INTO Orders (CustomerID)
+SELECT ID FROM Customers;
+
