@@ -20,7 +20,7 @@ CREATE TABLE Orders
 	ProductId INT FOREIGN KEY REFERENCES Products (ProductId),
 	CustomerId INT FOREIGN KEY REFERENCES Customers (CustomerId)
 )
---DROP TABLE Products DROP TABLE Customers DROP TABLE Orders
+
 --Manipulation
 INSERT INTO Products VALUES
 	('Coke',1.99),
@@ -34,10 +34,6 @@ INSERT INTO Orders VALUES
 	(1,1), --greg coke
 	(2,3), --tracy water
 	(3,1)	--richard coke
-SELECT * FROM Products
-SELECT * FROM Customers
-SELECT * FROM Orders
-
 
 INSERT INTO Products VALUES ('iPhone', 200.00)
 
@@ -57,7 +53,7 @@ UPDATE Products
 SET Price = 250.00
 WHERE ProductId = 4
 
-
+SELECT * FROM Products
 
 
 
