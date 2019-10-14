@@ -1,18 +1,19 @@
-Drop table Orders
-Drop table Products
-Drop table Customers
+--Drop table Orders
+--Drop table Products
+--Drop table Customers
 Create table Products(
 ID int not null primary key identity (1,1),
-Name nvarchar not null,
+Name nvarchar(20) not null,
 Price int not null
 );
 
 create table Customers(
 ID int not null primary key identity(1,1),
-Firstname nvarchar not null,
-Lastname nvarchar not null,
+Firstname nvarchar(20) not null,
+Lastname nvarchar(20) not null,
 CardNumber int null
 );
+
 create table Orders(
 ID int not null primary key identity(1,1),
 ProductID int not null foreign key references Products(ID),
@@ -43,6 +44,6 @@ insert into Customers(Firstname, Lastname) values
 insert into Orders (ProductID, CustomerID) values
 (4, 4)
 
-Select * from Orders inner join Customers on Orders.CustomerID = Customers.ID where Customers.Firstname = 'Tina' and Customers.Lastname = 'Smith'
-Select sum(price) from Orders inner join Products on Orders.ProductID = Products.ID where Products.Name = 'iPhone'
+Select Products.Name, Products.Price from Products inner join Orders on Orders.ProductID = Products.ID inner join Customers on Orders.CustomerID = Customers.ID where Customers.Firstname = 'Tina' and Customers.Lastname = 'Smith'
+Select sum(price) as [Total sales from iPhone] from Orders inner join Products on Orders.ProductID = Products.ID where Products.Name = 'iPhone'
 Update Products set Price = 250 where Name = 'iPhone'
