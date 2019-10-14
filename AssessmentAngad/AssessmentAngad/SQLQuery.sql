@@ -51,6 +51,9 @@ INSERT INTO Orders (CustomerId, ProductId) VALUES
 INSERT INTO Orders (CustomerId, ProductId) VALUES
 ((SELECT Id FROM Customers WHERE FirstName = 'Arthur' AND LastName = 'Morgan'), (SELECT Id FROM Products WHERE Name = 'iPhone'));
 
+INSERT INTO Orders (CustomerId, ProductId) VALUES
+((SELECT Id FROM Customers WHERE FirstName = 'John' AND LastName = 'Marston'), (SELECT Id FROM Products WHERE Name = 'iPhone'));
+
 GO
 
 --ALL ORDERS
