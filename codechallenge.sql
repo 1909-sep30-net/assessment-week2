@@ -1,14 +1,14 @@
-Insert Into Products (Name, Price) Values (Book, $10), (Magazine, $5), (DVD, $15)
+Insert Into Products (Name, Price) Values ('Book', $10), ('Magazine', $5), ('DVD', $15)
 Insert Into Customers (Firstname, Lastname, CardNumber) Values 
-	(Sam, Smith, 1111-1111-1111-1111),
-	(Robert, Jackson, 1111-1112-1111-1111),
-	(Sarah, Moore, 1111-1113-1111-1111)
+	('Sam', 'Smith', 1111-1111-1111-1111),
+	('Robert', 'Jackson', 1111-1112-1111-1111),
+	('Sarah', 'Moore', 1111-1113-1111-1111)
 Insert Into Orders (ProductID, CustomerID) Values (1,2),(2,1),(3,3)
 
-Insert Into Products (Name, Price) Values (IPhone, $200)
+Insert Into Products (Name, Price) Values ('IPhone', $200)
 
 Insert Into Customers (Firstname, Lastname, CardNumber) Values 
-	(Tina, Smith, 1111-1114-1111-1111)
+	('Tina', 'Smith', 1111-1114-1111-1111)
 
 Insert Into Orders (ProductID, CustomerID) Values (4,4)
 
