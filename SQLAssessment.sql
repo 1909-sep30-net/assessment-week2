@@ -39,17 +39,17 @@ INSERT INTO Products (Name, Price) VALUES
 	('Dark Chocolate Peppermint', 21.98),
 	('White Winter Chai', 16.42);
 
--- INSERT INTO 3 Orders
-INSERT INTO Orders (ProductID, CustomerID) VALUES
-	(2, 1),
-	(3, 2),
-	(1, 3);
-
 -- INSERT INTO 3 Customers
 INSERT INTO Customers (Firstname, Lastname, CardNumber) VALUES
 	('Henry', 'Ford', '98738561984728969'),
 	('Nikola', 'Tesla', '23645235635665232'),
 	('George', 'Washington', '73656372514711884');
+
+-- INSERT INTO 3 Orders
+INSERT INTO Orders (ProductID, CustomerID) VALUES
+	(2, 1),
+	(3, 2),
+	(1, 3);
 
 -- INSERT INTO Product iPhone at $200
 INSERT INTO Products (Name, Price) VALUES
@@ -82,3 +82,8 @@ WHERE p.Name = 'iPhone';
 UPDATE Products
 SET Price = 250.00
 WHERE Name = 'iPhone';
+
+-- SELECT statements for debugging
+SELECT * FROM Orders;
+SELECT * FROM Customers;
+SELECT * FROM Products;
