@@ -20,8 +20,30 @@ Select * From Orders as o
 Select Sum(Price) From Products as p 
 	Inner Join Orders as o ON p.ProductID = o.ProductID
 Where p.Name = 'IPhone'
-Group By Sum(Price)
+Group By p.ProductID
 
 Update Products Set Price = $250
 	Where Name = 'IPhone'
+
+Create Table Customers (
+	CustomerID INT NOT NULL Identity Primary Key,
+	Firstname NVARCHAR(30) NOT NULL,
+	Lastname NVARCHAR(30) NOT NULL,
+	CardNumber NVARCHAR(50) NOT NULL
+)
+
+Create Table Products (
+	ProductID INT NOT NULL Identity Primary Key,
+	Name NVARCHAR(20) NOT NULL,
+	Price Money NOT NULL
+)
+
+Create Table Orders (
+	ID INT NOT NULL Identity Primary Key,
+	ProductID INT NOT NULL Foreign Key References Products(ProductID),
+	CustomerID INT NOT NULL Foreign Key References Customers(CustomerID)
+)
+
+
+
 
