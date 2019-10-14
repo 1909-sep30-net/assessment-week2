@@ -1,10 +1,20 @@
 -- ASSESSMENT WEEK-2
 
+DROP TABLE Customers
 -- create database
 CREATE TABLE Products(
-	ID INT NOT NULL IDENTITY,
+	ID INT NOT NULL PRIMARY KEY IDENTITY,
 	Name NVARCHAR(50) NOT NULL,
 	Price MONEY NOT NULL
+);
+
+CREATE TABLE Customers(
+	ID INT NOT NULL PRIMARY KEY IDENTITY,
+	FirstName NVARCHAR(50) NOT NULL,
+	LastName NVARCHAR(50) NOT NULL,
+
+	-- Assuming that the cardnumber is just a 16 digit credit card number
+	CardNumber NVARCHAR(16) NOT NULL
 );
 
 CREATE TABLE Orders(
@@ -13,14 +23,7 @@ CREATE TABLE Orders(
 	CustomerID INT NOT NULL FOREIGN KEY REFERENCES Customers (ID)
 );
 
-CREATE TABLE Customers(
-	ID INT NOT NULL IDENTITY,
-	FirstName NVARCHAR(50) NOT NULL,
-	LastName NVARCHAR(50) NOT NULL,
 
-	-- Assuming that the cardnumber is just a 16 digit credit card number
-	CardNumber NVARCHAR(16) NOT NULL
-);
 
 -- Add 3 records into each table
 INSERT INTO Products (Name, Price) VALUES
@@ -43,14 +46,16 @@ INSERT INTO Products (Name, Price) VALUES
 ('iPhone',200)
 
 --add customer tina smith
-INSERT INTO Customers (FirstName, LastName) VALUES
-('Tina','Smith')
+INSERT INTO Customers (FirstName, LastName, CardNumber) VALUES
+('Tina','Smith', '1000100010001000')
 
 -- add order for iphone for tina smith
 DECLARE @tinaID INT
-SET @tinaID = ID FROM Customers WHERE FirstName = 'Tina' AND LastName = 'Smith'
+SET @tinaID = (SELECT ID FROM Customers WHERE FirstName = 'Tina' AND LastName = 'Smith')
+
 DECLARE @iphoneID INT
-SET @iphoneID = ID FROM Products WHERE Name = 'iPhone'
+SET @iphoneID = (SELECT ID FROM Products WHERE Name = 'iPhone')
+
 INSERT INTO Orders (ProductID, CustomerID) VALUES
 	(@iphoneID, @tinaID)
 
