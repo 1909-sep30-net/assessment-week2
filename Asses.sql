@@ -1,4 +1,4 @@
---Create Database assesstment2;
+--Create Database assesstment2;  ---
 --Create Schema assess2;
 --go
 
@@ -56,17 +56,11 @@ Insert Into Orders Values
 
 	;
 
-
+	--all orders by tina
 	Select o.id, c.FirstName from orders o inner join Customers c on o.CustomerID= c.id Where c.FirstName ='Tina';
-
+	--all revenue by iphone
 	Select sum(p.Price) From orders o inner join Products p on o.ProductID = p.id where p.ProductName = 'iphone';
-
+	--update tables for iphone prices
 	Update Products
 	Set Price = 250
 	Where ProductName = 'iphone';
-	--select i.StoreID, p.ProudctName, i.quantity from inventories i inner join products p on i.ProductID = p.id order by i.StoreID;
-
---	UPDATE table_name
-	
---SET column1 = value1, column2 = value2, ...
---WHERE condition; 
