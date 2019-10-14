@@ -45,10 +45,10 @@ SELECT * FROM Orders;
 GO
 
 -- CREATING TINA'S IPHONE ORDER
-INSERT INTO Orders (ProductId, CustomerId) VALUES
+INSERT INTO Orders (CustomerId, ProductId) VALUES
 ((SELECT Id FROM Customers WHERE FirstName = 'Tina' AND LastName = 'Smith'), (SELECT Id FROM Products WHERE Name = 'iPhone'));
 
-INSERT INTO Orders (ProductId, CustomerId) VALUES
+INSERT INTO Orders (CustomerId, ProductId) VALUES
 ((SELECT Id FROM Customers WHERE FirstName = 'Arthur' AND LastName = 'Morgan'), (SELECT Id FROM Products WHERE Name = 'iPhone'));
 
 GO
