@@ -41,9 +41,9 @@ insert into Products (Name, Price) values
 insert into Customers(Firstname, Lastname) values
 ('Tina', 'Smith')
 
-insert into Orders (ProductID, CustomerID) values
-(4, 4)
+insert into Orders (ProductID, CustomerID) values ( (Select ID from Products where Name = 'iPhone'), (select ID from Customers where Firstname = 'Tina' and Lastname = 'Smith')) 
 
 Select Products.Name, Products.Price from Products inner join Orders on Orders.ProductID = Products.ID inner join Customers on Orders.CustomerID = Customers.ID where Customers.Firstname = 'Tina' and Customers.Lastname = 'Smith'
 Select sum(price) as [Total sales from iPhone] from Orders inner join Products on Orders.ProductID = Products.ID where Products.Name = 'iPhone'
 Update Products set Price = 250 where Name = 'iPhone'
+
