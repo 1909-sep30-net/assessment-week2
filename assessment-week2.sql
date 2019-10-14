@@ -1,4 +1,4 @@
-/* CREATE SCHEMA Assessment2
+CREATE SCHEMA Assessment2
 GO
 
 CREATE TABLE Assessment2.Products (
@@ -21,9 +21,8 @@ CREATE TABLE Assessment2.Orders (
 	, ProductID nvarchar(255) REFERENCES Assessment2.Products(ID)
 	, CustomerID nvarchar(255) REFERENCES Assessment2.Customers(ID)
 )
-GO */
+GO
 
-/* 
 -- Three entries each
 INSERT INTO Assessment2.Products (ID, Name, Price) VALUES 
 ('1', 'Plastic Tub', 44.99)
@@ -41,9 +40,8 @@ INSERT INTO Assessment2.Orders (ID, ProductID, CustomerID) VALUES
 ('1', '1', '1')
 , ('2', '2', '2')
 , ('3', '3', '4')
-GO */
+GO
 
-/*
 -- Creating Tina Smith
 INSERT INTO Assessment2.Products (ID, Name, Price) VALUES
 ('4', 'iPhone', 200.00);
